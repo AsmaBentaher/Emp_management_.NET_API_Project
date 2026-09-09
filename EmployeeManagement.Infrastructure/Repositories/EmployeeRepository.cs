@@ -58,6 +58,9 @@ namespace EmployeeManagement.Infrastructure.Repositories
             await _Context.SaveChangesAsync();
         }
 
+
+        // flags the specific tracking entity for deletion.
+        // Then generates and runs an SQL query to delete the targeted employee.
         public async Task DeleteAsync(Employee employee)
         {
             _Context.Employees.Remove(employee);
