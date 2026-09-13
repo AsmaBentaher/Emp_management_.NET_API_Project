@@ -1,5 +1,6 @@
 ﻿using EmployeeManagement.Application.DTOs.Employee;
 using EmployeeManagement.Application.Services;
+using EmployeeManagement.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagement.Api.Controllers
@@ -8,9 +9,9 @@ namespace EmployeeManagement.Api.Controllers
     [Route("api/[controller]")]
     public class EmployeeController : ControllerBase
     {
-        private readonly EmployeeService _service;
+        private readonly IEmployeeService _service;
 
-        public EmployeeController(EmployeeService service)
+        public EmployeeController(IEmployeeService service)
         {
             _service = service;
         }

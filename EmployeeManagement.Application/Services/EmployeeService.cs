@@ -8,7 +8,7 @@ using EmployeeManagement.Domain.Entities;
 
 namespace EmployeeManagement.Application.Services
 {
-    public class EmployeeService
+    public class EmployeeService : IEmployeeService
     {
         //Private variable to hold the repository(Cannot be changed to something else once it's set).
         private readonly IEmployeeRepository _repository;
