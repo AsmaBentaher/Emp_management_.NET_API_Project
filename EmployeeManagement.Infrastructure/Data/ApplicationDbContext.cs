@@ -21,4 +21,11 @@ public class ApplicationDbContext : DbContext
     // => set<Employee>() ==> Grab the reference for the Employee table.
     public DbSet<Employee> Employees => Set<Employee>();
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Employee>()
+            .Property(e => e.Salary)
+            .HasPrecision(18, 2);
+    }
+
 }

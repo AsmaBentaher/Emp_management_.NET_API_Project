@@ -4,6 +4,7 @@
   </Folder>
   <Project Path="EmployeeManagement.Api/EmployeeManagement.Api.csproj" />
   <Project Path="EmployeeManagement.Application/EmployeeManagement.Application.csproj" />
+  <Project Path="EmployeeManagement.Business/EmployeeManagement.Business.csproj" Id="c0f3aec6-d90a-4f49-a895-547b51f1d00d" />
   <Project Path="EmployeeManagement.Domain/EmployeeManagement.Domain.csproj" />
   <Project Path="EmployeeManagement.Infrastructure/EmployeeManagement.Infrastructure.csproj" />
 </Solution>

@@ -2,12 +2,16 @@ using EmployeeManagement.Application.Interfaces;
 using EmployeeManagement.Application.Services;
 using EmployeeManagement.Infrastructure.Data;
 using EmployeeManagement.Infrastructure.Repositories;
+using FluentValidation;
+using EmployeeManagement.Application.Validators;
 using Microsoft.EntityFrameworkCore;
+using EmployeeManagement.Application.DTOs.Employee;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddControllers();
+
 
 //Discovers the Controllers so Swagger can map them
 builder.Services.AddEndpointsApiExplorer();
@@ -30,6 +34,12 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Clean Architecture Dependency Injection mappings
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+
+
+// FluentValidation
+builder.Services.AddScoped<IValidator<CreateEmployeeDto>, CreateEmployeeValidator>();
+builder.Services.AddScoped<IValidator<UpdateEmployeeDto>, UpdateEmployeeValidator>();
+
 
 var app = builder.Build();
 
