@@ -18,12 +18,21 @@ namespace EmployeeManagement.Api.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> GetAllAsync()
         {
             
             var employee = await _service.GetAllAsync();
 
-            return Ok(employee);
+            var empDto =  employee.Select(employee => new CreateEmployeeDto
+            {
+                Id = employee.Id,
+                Name = employee.Name,
+                Email = employee.Email,
+                Phone = employee.Phone,
+                Salary = employee.Salary,
+            }).ToList();
+
+            return Ok(empDto);
         }
 
 
